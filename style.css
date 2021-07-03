@@ -1,0 +1,261 @@
+:root{
+    /* Color */
+    --white-color:#fff;
+    --black-color:#140a00;
+    --blue-color:#045fd4;
+    --red-color:#ff0000;
+    --grey-dark-color:#909090;
+    --grey-light-color:#e0e0e0;
+
+    /* Size */
+    --padding: 12px;
+    --avatar-size: 36px;
+
+    /* Font size */
+    --font-large: 18px;
+    --font-medium: 14px;
+    --font-small: 12px;
+    --font-micro: 10px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;  /* 테두리(border) 값을 포함한 크기를 지정할 수 있다 */
+
+}
+
+body {
+    font-family: Roboto;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--padding);
+    background-color: var(--black-color);
+    color: var(--white-color);
+}
+
+header .logo {
+    font-size: var(--font-large);
+}
+
+header .logo i {
+    color: var(--red-color);
+}
+
+header .icons .fa-search {
+    margin-right: var(--padding);
+}
+
+ul {
+    list-style: none; 
+}
+
+button, button:focus {
+    border: none;
+    cursor: pointer;
+    outline: none;
+
+}
+
+/* Video */
+
+.video {
+    position: sticky;
+    top: 0;
+    /* 스크롤링 할 때 붙어있게 함.어디에 붙어있을지 힌트를 줘야 하기 때문에 top:0 로 설정 */
+
+    text-align: center;  /* 화면이 커지면 video가 화면 중앙에 위치할수 있게 함 */
+    background-color: var(--black-color);
+}
+
+.video iframe {
+    width: 100%;  
+    /* item을 반응형으로 만들 수 있는 가장 좋은 방법은 퍼센테이지를 이용하는것 */
+   
+    max-width: 1000px;
+}
+
+/* Video info */
+
+.infoAndUpNext > .info {
+    margin-left: var(--padding);
+}
+.info .metadata .hashtag ul {
+    display: flex;
+    font-size: var(--font-small);
+    color: var(--blue-color);
+    margin: var(--padding) 0;
+}
+
+.info .metadata .hashtag li{
+    margin-right: var(--padding);  
+}
+
+.info .metadata .titleAndButton {
+    display: flex;
+}
+
+.info .metadata .titleAndButton .title {
+    font-size: var(--font-medium);
+    margin-right: var(--padding);
+}
+
+.info .metadata .titleAndButton .title.clamp {
+        /* 지정한 line으로 축소시켜주는 코드. display 되지 않은 글자는 dot으로 표현된다 */
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+}
+
+.info .metadata .titleAndButton .moreBtn {
+    height: 100%;
+    margin-right: var(--padding);
+    background-color: var(--white-color);
+    
+    /*버튼이 돌아갈때 애니메이션 효과를 준다*/
+    transition: transform 300ms ease-in-out;
+}
+
+.info .metadata .titleAndButton .moreBtn.clicked {
+    transform: rotate(180deg);
+}
+
+.info .metadata .views {
+    font-size: var(--font-small);
+    color: var(--grey-dark-color);
+}
+
+/* Action Buttons */
+
+.actions {
+    display: flex;
+    justify-content: space-around;
+    margin: var(--padding);
+   
+}
+
+.actions button{
+    background-color: var(--white-color);
+    display: flex;
+    flex-direction: column;
+    color: var(--grey-dark-color);
+}
+
+.actions button i {
+    margin: 0 auto;
+    font-size: var(--font-small);
+    margin-bottom: calc(var(--padding) / 2);
+}
+
+.actions button i.active {
+    color: var(--blue-color);
+}
+
+/* Channel Description */
+
+.channelInfo {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--padding) 0 ;
+    border-top: 1px solid var(--grey-light-color);
+    border-bottom: 1px solid var(--grey-light-color);
+}
+
+.channelInfo .metadata {
+    display: flex;
+}
+
+.channelInfo .metadata img{
+    border-radius: 50%;
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+}
+
+.channelInfo .info {
+    display: flex;
+    flex-direction: column;
+    margin-left: var(--padding);
+}
+
+.channelInfo .info .name {
+    font-size: var(--font-medium);
+}
+
+.channelInfo .info .subscribers {
+    font-size: var(--font-small);
+    color: var(--grey-dark-color);
+}
+
+.channelInfo button{
+   margin: var(--padding);
+   background-color: var(--white-color);
+   color: var(--red-color);
+   font-size: var(--font-medium);
+}
+
+/* Up Next */
+
+.UpNext {
+    padding: calc(var(--padding) /2 ) var(--padding);
+}
+
+.UpNext > .title {
+    color: var(--grey-dark-color);
+    font-size: var(--font-medium);
+}
+
+.UpNext ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.UpNext .item {
+    display: flex;
+    padding: var(--padding) 0;
+}
+
+.UpNext .item img {
+    flex: 1 1 35%;
+}
+.UpNext .info {
+    flex: 1 1 60%;
+    margin-left: var(--padding);
+    display: flex;
+    flex-direction: column;
+}
+
+.UpNext .item .moreBtn {
+    flex: 1 1 5%;
+    background-color: var(--white-color);
+    height: 100%;
+}
+.UpNext .title {
+    font-size: var(--font-medium);
+}
+
+.UpNext .name {
+    font-size: var(--font-small);
+    color: var(--grey-dark-color);
+}
+
+.UpNext .views {
+    font-size: var(--font-micro);
+    color: var(--grey-dark-color);
+}
+
+.infoAndUpNext {
+    display: flex;
+    flex-direction: column;
+
+}
+
+@media screen and (min-width: 768px) {
+    .infoAndUpNext {
+        flex-direction: row;
+    }
+}
